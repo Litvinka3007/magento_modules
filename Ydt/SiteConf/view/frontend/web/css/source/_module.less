@@ -1,0 +1,220 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    .store-info__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: auto;
+        padding: 1.3rem;
+        max-width: 345px;
+        width: 100%;
+        font-size: 1rem;
+        font-weight: @font-weight__regular;
+
+        .working-hours {
+            margin-bottom: 0.4rem;
+
+            .store-info__dropdown {
+                .lib-dropdown();
+
+                .action.toggle {
+                    border: none;
+                    outline: none;
+                    background: none;
+                    box-shadow: none;
+                    margin-left: 0;
+                    padding: 0;
+                    vertical-align: bottom;
+                    font-size: 1rem;
+                    color: @color-white;
+
+                    .working-hours__info {
+                        font-size: 1rem;
+                        color: @color-white;
+                    }
+                }
+
+                .action.toggle:after,
+                .action.toggle.active:after,
+                .action.toggle:hover:after,
+                .action.toggle:active:after,
+                .action.toggle.active:active:after,
+                .action.toggle.active:hover:after {
+                    margin-left: 0.5rem;
+                    vertical-align: bottom;
+                    font-size: 1rem;
+                    color: @color-white;
+                }
+
+                ul.dropdown {
+                    z-index: 200;
+                    width: 170%;
+                    color: @color-black;
+                    border-color: @color-custom-ghost;
+
+                    .dropdown__hours-block,
+                    .dropdown__address-block {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        padding: 1.5rem;
+                        border-bottom: 1px solid @color-custom-ghost;
+
+                        img {
+                            margin-right: 1.2rem;
+                        }
+                    }
+
+                    .dropdown__address-block {
+                        .address {
+                            font-size: 1.3rem;
+                            font-weight: @font-weight__regular;
+                        }
+                    }
+
+                    .dropdown__contacts-block {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        padding: 1.5rem;
+
+                        .contacts-block__item {
+                            font-size: 1.4rem;
+                            font-weight: @font-weight__light;
+                        }
+                    }
+
+                    .opening-hours {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        justify-content: flex-start;
+
+                        &__item {
+                            font-size: 1.3rem;
+
+                            &:first-of-type {
+                                font-size: 1.2rem;
+                                font-weight: @font-weight__regular;
+                            }
+                        }
+                    }
+
+                    &:before {
+                        left: 10px;
+                        top: -11px;
+                    }
+                }
+
+                .working-days {
+                    color: @color-custom-gray;
+                }
+            }
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-end;
+            margin-bottom: 0.4rem;
+
+            .address {
+                margin-right: 1rem;
+                color: @color-custom-gray;
+            }
+
+            a.button-link,
+            a.button-link:active,
+            a.button-link:hover {
+                text-transform: capitalize;
+                text-decoration: underline;
+                color: @color-white;
+            }
+        }
+
+        .contacts {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            .phone-number {
+                margin-right: 1.6rem;
+                color: @color-white;
+            }
+
+            .social-links {
+                .social-icons-mixin();
+            }
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+}
+
+//
+//  Tablet
+//  _____________________________________________
+
+& when (@media-target = 'desktop'), (@media-target = 'all') {
+    @media only screen and (min-width: @screen__m) and (max-width: @screen__l) {
+        .store-info__container {
+            flex-direction: column;
+            max-width: 728px;
+            font-size: 1.2rem;
+            font-weight: @font-weight__semibold;
+
+            .working-hours {
+                margin-bottom: 0.6rem;
+            }
+
+            .contact-info {
+                margin-bottom: 0.6rem;
+            }
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .store-info__container {
+        flex-direction: row;
+        align-items: center;
+        max-width: 1400px;
+        font-size: 1.2rem;
+        font-weight: @font-weight__semibold;
+
+        .working-hours {
+            .store-info__dropdown {
+                .action.toggle {
+                    margin-left: 0.5rem;
+
+                    .working-hours__info {
+                        font-size: 1.2rem;
+                    }
+                }
+
+                ul.dropdown {
+                    width: 150%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,67 @@
+<?php
+/** @var \Ydt\SiteConf\Block\Header $block */
+?>
+
+<div class="store-info__container">
+    <div class="working-hours">
+        <div class="actions dropdown store-info__dropdown">
+            <button class="action toggle"
+                    data-mage-init='{"dropdown":{}}'
+                    data-toggle="dropdown"
+                    aria-haspopup="true">
+                <span class="working-hours__info"><span class="working-days">Mon-Thu: </span><?= $block->getOpeningHours() ?></span>
+            </button>
+            <ul class="dropdown">
+                <li class="dropdown__hours-block">
+                    <img src="<?= $block->escapeUrl($block->getViewFileUrl('Ydt_SiteConf::images/clock.svg')) ?>"
+                         alt="<?= $block->escapeHtml(__('Clock icon')); ?>">
+                    <span class="opening-hours">
+                        <span class="opening-hours__item">We are open:</span>
+                        <span class="opening-hours__item"><span class="working-days">Mon-Thu:</span> <?= $block->getOpeningHours() ?></span>
+                        <span class="opening-hours__item"><span class="working-days">Fr:</span> 9:00 AM - 6:00 PM</span>
+                        <span class="opening-hours__item"><span class="working-days">Sat:</span> 11:00 AM - 5:00 PM</span>
+                    </span>
+                </li>
+                <li class="dropdown__address-block">
+                    <img src="<?= $block->escapeUrl($block->getViewFileUrl('Ydt_SiteConf::images/geolocation.svg')) ?>"
+                         alt="<?= $block->escapeHtml(__('Geolocation icon')); ?>">
+                    <span class="address">Address:
+                        <?= $block->getStreetLine1() ?>,
+                        <?= $block->getCity() ?>,
+                        <?= $block->getPostcode() ?>
+                    </span>
+                </li>
+                <li class="dropdown__contacts-block">
+                    <span class="contacts-block__item">Phones:
+                        <a href="(00) 1234 5678"><?= $block->getPhoneNumber() ?></a>
+                    </span>
+                    <span class="contacts-block__item">E-mail:
+                        <a href="mailto:shop@email.com"><?= $block->getEmailUs() ?></a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="contact-info">
+        <div class="address">Visit our showroom in
+            <?= $block->getStreetLine1() ?>
+            <?= $block->getCity() ?>,
+            <?= $block->getPostcode() ?>
+        </div>
+        <a href="#" class="button-link">Contact us</a>
+    </div>
+    <div class="contacts">
+        <div class="phone-number">Call Us: <?= $block->getPhoneNumber() ?>
+        </div>
+        <div class="social-links">
+            <a href="#">
+                <img src="<?= $block->escapeUrl($block->getViewFileUrl('Ydt_SiteConf::images/social-icons/facebook.svg')) ?>"
+                     alt="<?= $block->escapeHtml(__('Facebook icon')); ?>">
+            </a>
+            <a href="#">
+                <img src="<?= $block->escapeUrl($block->getViewFileUrl('Ydt_SiteConf::images/social-icons/insta-icon.svg')) ?>"
+                     alt="<?= $block->escapeHtml(__('Instagram icon')); ?>">
+            </a>
+        </div>
+    </div>
+</div>
